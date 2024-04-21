@@ -49,6 +49,6 @@ python manage.py migrate
 python manage.py runserver
 ```
 5.Access the application in your web browser:
-'''bash
+```bash
 http://localhost:8000/
 ```
