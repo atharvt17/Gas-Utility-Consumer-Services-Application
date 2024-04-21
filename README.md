@@ -16,7 +16,7 @@ A gas utility company is facing challenges with a high volume of customer servic
 ## User Credentials
 - **Superuser ID:** admin
   - **Password:** gasadmin@123
-- Note: To access the staff dashboard, log in with the staff ID and password.
+- Note: To access the staff dashboard and manage service requests, log in with the staff ID and password.
 - **Staff ID:** staffadmin
   - **Password:** admin@1703
 
