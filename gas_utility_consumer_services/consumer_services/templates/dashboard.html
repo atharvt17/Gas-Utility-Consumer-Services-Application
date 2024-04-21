@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <p><a href="/submit-request">Submit Request</a></p>
+    <p><a href="#" id="track-request">Track Request</a></p>
+    <p><a href="/account-info">Account Information</a></p>
+    <p><a href="/logout">Logout</a></p>
+    <script>
+        document.getElementById('track-request').addEventListener('click', function(event) {
+            event.preventDefault();
+            var trackID = prompt("Please enter your tracking ID:");
+            if (trackID !== null) {
+                window.location.href = "/track/" + encodeURIComponent(trackID) + "/";
+            }
+        });
+    </script>
+</body>
+</html>

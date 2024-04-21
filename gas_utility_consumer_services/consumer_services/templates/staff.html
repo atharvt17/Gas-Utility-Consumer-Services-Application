@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Page</title>
+    <style>
+        .request-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .request-details {
+            margin-top: 5px;
+        }
+        .date-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Staff page</h2>
+    <h3>Active Requests:</h3>
+    {% for request in active_requests %}
+    <div class="request-box">
+        <h4>Category: {{ request.category }}</h4>
+        <h4>Customer Name: {{ request.customer.name }}</h4>
+        <h4>Username: {{ request.customer.username }}</h4>
+        <div class="date-container">
+            <p>Date: {{ request.date_submitted }}</p>
+            <div class="status-container" id="status-{{ request.id }}">
+                <p>Status: {{ request.status }}</p>
+                <form id="updateStatusForm" method="POST" action="{% url 'update_status' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="requestId" value="{{ request.id }}">
+                    <select name="newStatus">
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="On Hold">On Hold</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                    <button type="submit">Update Status</button>
+                </form>
+            </div>
+        </div>
+        <div class="request-details">
+            <p>Details: {{ request.details }}</p>
+            {% if request.files %}
+            <p>File Uploaded: <a href="{{ request.files.url }}" target="_blank">{{ request.files.name }}</a></p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

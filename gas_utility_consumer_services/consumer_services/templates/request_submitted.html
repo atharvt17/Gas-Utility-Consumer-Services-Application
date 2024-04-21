@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Submitted</title>
+</head>
+<body>
+    <h1>Your request has been submitted</h1>
+    <p>Your request has been successfully submitted. Your track ID is: <strong>{{ track_id }}</strong></p>
+    <p>You can use this track ID to track the status of your service request.</p>
+    <p><a href="/dashboard">Go To dashboard</a> || <a href="#" id="track-request">Track Request</a></p>
+    <script>
+        document.getElementById('track-request').addEventListener('click', function(event) {
+            event.preventDefault();
+            var trackID = document.querySelector('strong').innerText;
+            if (trackID !== null && trackID.trim() !== '') {
+                var trackURL = "/track/" + encodeURIComponent(trackID) + "/";
+                window.open(trackURL, '_blank');
+            } else {
+                alert("Track ID is missing. Please try again later.");
+            }
+        });
+    </script>
+</body>
+</html>
