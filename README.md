@@ -34,21 +34,21 @@ The application consists of the following components:
 1. Clone the repository:
 ```bash
 https://github.com/atharvt17/Gas-Utility-Consumer-Services-Application
-'''
+```
 2. Go to the Project Directory
 ```bash
 cd gas_utility_consumer_services
-'''
+```
 3. Perform database migrations:
 ```bash
 python manage.py makemigrations
 python manage.py migrate
-'''
+```
 4.Run the development server:
 ```bash
 python manage.py runserver
-'''
+```
 5.Access the application in your web browser:
 '''bash
 http://localhost:8000/
-'''
+```
